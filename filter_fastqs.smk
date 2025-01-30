@@ -1,11 +1,9 @@
 import os
-aligned_bams_folder = "/home/charlie/big_data/splicewiz_output/dm_bdgp632/C57_BWM_alignment/aligned_bams"
-fastq_folder = "/home/charlie/Dropbox/splicewiz/splicewiz_fastqs/C57_BWM"
+aligned_bams_folder = "/home/charlie/projects/splicewiz/output/BDGP6.46.full/C57_BWM_alignment/aligned_bams"
+fastq_folder = "/home/charlie/projects/reference/splicewiz_fastqs/C57_BWM"
+bed_file = "/home/charlie/projects/reference/genome_annotations/BDGP6.46.full_copia.bed"
+output_folder = f"{fastq_folder}_46_filtered"
 
-bed_file = "/home/charlie/big_data/genomes_and_TE/BDGP6.32_annotations/dm_bdgp632_copia_regions.bed"
-
-
-output_folder = f"{fastq_folder}_filtered"
 samples = set({})
 for file in os.listdir(fastq_folder):
 	file = file.replace("_1.fq.gz","").replace("_2.fq.gz", "")
@@ -53,7 +51,7 @@ rule filter_fastqs:
 		filtered_fastq_1 = os.path.join(output_folder, "{sample}_1.fq"),
 		filtered_fastq_2 = os.path.join(output_folder, "{sample}_2.fq"),
 	script:
-		"filter_fastqs.py"
+		"scripts/filter_fastqs.py"
 
 rule compress_filtered_fastqs:
 	input:
