@@ -1,8 +1,8 @@
 import os
-aligned_bams_folder = "/home/charlie/projects/splicewiz/output/BDGP6.46.full/C57_BWM_alignment/aligned_bams"
-fastq_folder = "/home/charlie/projects/reference/splicewiz_fastqs/C57_BWM"
+aligned_bams_folder = "/home/charlie/projects/splicewiz/out/BDGP6.46.full/C380_CNS_alignment/aligned_bams"
+fastq_folder = "/home/charlie/projects/reference/splicewiz_fastqs/C380_CNS"
 bed_file = "/home/charlie/projects/reference/genome_annotations/BDGP6.46.full_copia.bed"
-output_folder = f"{fastq_folder}_46_filtered"
+output_folder = f"{fastq_folder}_filtered"
 
 samples = set({})
 for file in os.listdir(fastq_folder):
